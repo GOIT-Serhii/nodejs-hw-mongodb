@@ -1,4 +1,3 @@
-// mongodb+srv://Serhii:<db_password>@cluster0.7ask1.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 import { env } from '../utils/env.js';
 import mongoose from 'mongoose';
 
@@ -9,11 +8,12 @@ export const initMongoDB = async () => {
     const url = env('MONGODB_URL');
     const db = env('MONGODB_DB');
 
-    await mongoose.connect(`mongodb+srv://${user}:${password}@${url}/${db}?retryWrites=true&w=majority&appName=Cluster0
-import { env } from '../utils/env';`);
-    console.log('MongoDB connection successfully ');
+    await mongoose.connect(
+      `mongodb+srv://${user}:${password}@${url}/${db}?retryWrites=true&w=majority&appName=Cluster0`,
+    );
+    console.log('MongoDB connection successful');
   } catch (error) {
-    console.log(`Error connect database with message ${error.message}`);
+    console.log(`Error connecting to the database: ${error.message}`);
     throw error;
   }
 };
