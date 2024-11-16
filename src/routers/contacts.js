@@ -5,6 +5,7 @@ import * as contactControllers from '../controllers/contacts.js';
 import ctrlWrapper from '../utils/ctrlWrapper.js';
 import validateBody from '../utils/validateBody.js';
 import { isValidId } from '../midlewares/isValidId.js';
+import { authenticate } from '../midlewares/authenticate.js';
 
 import {
   contactAddSchema,
@@ -12,6 +13,8 @@ import {
 } from '../validation/contacts.js';
 
 const contactsRouter = Router();
+
+contactsRouter.use(authenticate);
 
 contactsRouter.get('/', ctrlWrapper(contactControllers.getContactsController));
 
