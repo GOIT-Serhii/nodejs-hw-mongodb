@@ -1,3 +1,5 @@
+import { ObjectId } from 'mongoose';
+
 import ContactCollection from '../db/models/Contacts.js';
 
 import { calculatePaginationData } from '../utils/calculatePaginationData.js';
@@ -44,8 +46,8 @@ export const getContacts = async ({
   };
 };
 
-export const getContactById = (_id, userId) =>
-  ContactCollection.findOne({ _id, userId });
+export const getContactById = (_id, filter) =>
+  ContactCollection.findOne({ _id, filter });
 
 export const addContact = (payload) => ContactCollection.create(payload);
 
