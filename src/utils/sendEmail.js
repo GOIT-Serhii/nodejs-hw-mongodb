@@ -22,18 +22,3 @@ export const sendEmail = async (options) => {
     throw createHttpError(500, 'Failed to send email, please try again later');
   }
 };
-
-// export const sendEmail = async (options) => {
-//   try {
-//     console.log('Sending email with options:', options); // Логування параметрів листа
-
-//     const result = await transporter.sendMail(options);
-//     console.log('Email sent successfully:', result); // Логування результату успішної відправки
-
-//     return result;
-//   } catch (error) {
-//     console.error('Error while sending email:', error); // Логування помилки
-
-//     throw createHttpError(500, 'Failed to send email, please try again later');
-//   }
-// };
