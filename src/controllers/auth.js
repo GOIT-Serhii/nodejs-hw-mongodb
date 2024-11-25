@@ -1,5 +1,3 @@
-import createHttpError from 'http-errors';
-
 import * as authServices from '../services/auth.js';
 
 const setupSession = (res, session) => {
