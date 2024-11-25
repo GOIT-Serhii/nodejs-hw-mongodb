@@ -26,6 +26,29 @@ export const registerController = async (req, res) => {
   });
 };
 
+export const resetEmailController = async (req, res) => {
+  await authServices.requestResetToken(req.body.email);
+  res.json({
+    message: 'Reset password email was successfully sent!',
+    status: 200,
+    data: {},
+  });
+};
+
+export const resetPwdController = async (req, res, next) => {
+  try {
+    const { token, password } = req.body;
+    await authServices.resetPassword(token, password);
+    res.status(200).json({
+      status: 200,
+      message: 'Password has been successfully reset.',
+      data: {},
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
 export const logingController = async (req, res) => {
   const session = await authServices.login(req.body);
 
