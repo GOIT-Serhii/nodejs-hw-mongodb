@@ -12,7 +12,7 @@ import fs from 'node:fs/promises';
 import UserCollection from '../db/models/User.js';
 import SessionCollection from '../db/models/Session.js';
 
-import { SMTP, TEMPLATES_DIR } from '../constants/SMPT.js';
+import { SMTP, TEMPLATES_DIR } from '../constants/index.js';
 
 import {
   accessTokenLifeTime,

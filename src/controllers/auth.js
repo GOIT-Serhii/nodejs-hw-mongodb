@@ -33,18 +33,13 @@ export const resetEmailController = async (req, res) => {
   });
 };
 
-export const resetPwdController = async (req, res, next) => {
-  try {
-    const { token, password } = req.body;
-    await authServices.resetPassword(token, password);
-    res.status(200).json({
-      status: 200,
-      message: 'Password has been successfully reset.',
-      data: {},
-    });
-  } catch (error) {
-    next(error);
-  }
+export const resetPwdController = async (req, res) => {
+  await authServices.resetPassword(req.body);
+  res.status(200).json({
+    status: 200,
+    message: 'Password has been successfully reset.',
+    data: {},
+  });
 };
 
 export const logingController = async (req, res) => {

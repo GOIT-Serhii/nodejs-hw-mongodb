@@ -1,6 +1,6 @@
 import nodemailer from 'nodemailer';
 
-import { SMTP } from '../constants/SMPT.js';
+import { SMTP } from '../constants/index.js';
 import { env } from '../utils/env.js';
 import createHttpError from 'http-errors';
 
