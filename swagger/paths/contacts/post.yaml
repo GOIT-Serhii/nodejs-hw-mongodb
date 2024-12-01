@@ -21,11 +21,15 @@ requestBody:
           name:
             description: "Contact's name"
             type: string
+            minLength: 3
+            maxLength: 20
             example: 'John Doe'
           phoneNumber:
             description: "Contact's phone number"
-            type: number
-            example: 0990001122
+            type: string
+            minLength: 3
+            maxLength: 20
+            example: '0990001122'
           contactType:
             description: "Contact's type"
             type: string
@@ -37,6 +41,9 @@ requestBody:
           email:
             description: "Contact's email"
             type: string
+            format: email
+            minLength: 3
+            maxLength: 20
             example: 'john@gmail.com'
           photo:
             description: "Contact's photo"

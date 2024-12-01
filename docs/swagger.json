@@ -14,17 +14,13 @@
       "url": "http://localhost:3000"
     },
     {
-      "url": "https://example.com/api/v1"
+      "url": "https://contacts-app-pzdi.onrender.com/api/v1"
     }
   ],
   "tags": [
     {
       "name": "Contacts",
       "description": "Operations about contacts."
-    },
-    {
-      "name": "Auth",
-      "description": "Auth operations."
     }
   ],
   "paths": {
@@ -198,12 +194,16 @@
                   "name": {
                     "description": "Contact's name",
                     "type": "string",
+                    "minLength": 3,
+                    "maxLength": 20,
                     "example": "John Doe"
                   },
                   "phoneNumber": {
                     "description": "Contact's phone number",
-                    "type": "number",
-                    "example": 990001122
+                    "type": "string",
+                    "minLength": 3,
+                    "maxLength": 20,
+                    "example": "0990001122"
                   },
                   "contactType": {
                     "description": "Contact's type",
@@ -222,6 +222,9 @@
                   "email": {
                     "description": "Contact's email",
                     "type": "string",
+                    "format": "email",
+                    "minLength": 3,
+                    "maxLength": 20,
                     "example": "john@gmail.com"
                   },
                   "photo": {
@@ -273,7 +276,7 @@
     "/contacts/{id}": {
       "get": {
         "tags": [
-          "Contact"
+          "Contacts"
         ],
         "summary": "Get contact by id",
         "operationId": "getContactById",
@@ -324,8 +327,8 @@
               }
             }
           },
-          "401": {
-            "$ref": "#/components/responses/401"
+          "404": {
+            "$ref": "#/components/responses/404"
           }
         }
       },
@@ -460,7 +463,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "204": {
             "description": "Contact deleted successfully"
           },
           "401": {
